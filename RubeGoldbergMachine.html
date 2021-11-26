@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="utf-8">
+    <title>Rube Goldberg Maskin</title>
+</head>
+<style>
+    body {
+        overflow: hidden;
+        margin: 0;
+    }
+    .ui {
+        position: absolute;
+    }
+    button{
+        margin: 20px;
+        width: 150px;
+    }
+</style>
+<body>
+<!--Lager en referanse til audiofil, som blir brukt når Goldberg maskinen er ferdig-->
+<audio id="fireworks" controls style="display:none">
+    <source src="http://127.0.0.1:8080" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+<script src="../lib/ammo/ammo.js"></script>
+<div style="top:10px;width:100%;text-align: center; color:rebeccapurple;" class="ui">
+    Trykk V for å styre flipperen<br>
+    Trykk P for å skyte ut fyrverkeri<br>
+</div>
+<script type="module">
+    import {AmmoShapesApp} from "./js/AmmoShapesApp.js";
+
+    Ammo().then( function( AmmoLib )
+    {
+        Ammo = AmmoLib;
+        let ammoShapesApp = new AmmoShapesApp();
+        ammoShapesApp.start();
+    } );
+</script>
+</body>
+</html>
